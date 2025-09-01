@@ -384,22 +384,66 @@ def bock_algorithm(cost_matrix, root):
     return Z, I_star
 
 #===============================================================
-def bock_with_single_root(cost_matrix, root):
-    n = cost_matrix.shape[0]
-    cand_js = [j for j in range(n) if j != root and np.isfinite(cost_matrix[root, j])]
+def bock_one_root(cost_matrix, root):
+    """
+    - Runs bock_algorithm(cost_matrix, root) once.
+    - Finds nodes whose parent is the root in that solution.
+    - If multiple, re-run while forcing exactly one root->j edge at a time,
+      picking the minimum-cost solution among those tried.
+    
+    Args:
+        cost_matrix: np.ndarray of shape (n, n), dtype float.
+                     Entry [i, j] is the cost of arc i -> j (np.inf to forbid).
+        root: int, index of designated root node.
+        bock_algorithm: callable(cost_matrix, root) -> (Z, par)
+            Should return total cost Z (float) and parent array par (len n),
+            where par[j] = parent of j, and typically par[root] = -1 or root.
+
+    Returns:
+        (best_Z, best_par)
+        best_Z: float (min total cost), or None if infeasible.
+        best_par: np.ndarray of parents, or None if infeasible.
+
+    Notes:
+        - cost_matrix must be MIN-COST (not max-score). If you have scores S,
+          pass C = -S (and np.inf for forbidden).
+        - We only iterate over nodes that were root-children in the first run,
+          mirroring chuliu_edmonds_one_root's behavior.
+    """
+    C0 = np.asarray(cost_matrix, dtype=float)
+    n = C0.shape[0]
+    assert C0.shape == (n, n)
+
+    # First pass: get an initial arborescence
+    Z0, par0 = bock_algorithm(C0, root)
+    if Z0 is None or par0 is None:
+        return None, None
+
+    # Identify nodes whose parent is the root in the initial solution
+    # Exclude the root itself
+    roots_to_try = [j for j in range(n) if j != root and par0[j] == root]
+
+    # If unique root child, we’re done
+    if len(roots_to_try) <= 1:
+        return Z0, par0
+
     best_Z, best_par = None, None
 
-    for j_keep in cand_js:
-        C = cost_matrix.copy()
-        # forbid all root->k except j_keep
+    for j_keep in roots_to_try:
+        # Copy and enforce: allow ONLY root->j_keep; forbid root->k for k != j_keep
+        C = C0.copy()
         mask = np.ones(n, dtype=bool)
         mask[root] = False
         mask[j_keep] = False
+        # forbid all root->k except j_keep
         C[root, mask] = np.inf
 
         Z, par = bock_algorithm(C, root)
-        if Z is not None and (best_Z is None or Z < best_Z):  # < for min-cost; use > for max-score
+        if Z is not None and (best_Z is None or Z < best_Z):
             best_Z, best_par = Z, par
 
+    # Fallback: if all constrained runs failed, return the initial solution
+    # (mirrors typical CLE wrapper behavior that keeps a valid tree if found)
+    if best_Z is None:
+        return Z0, par0
     return best_Z, best_par
-
