@@ -13,28 +13,20 @@ Consider the cost matrix $C$, where rows are source nodes, columns are
 target nodes, and node 1 is the root. Entries on the diagonal and in
 column 1 are $\infty$ (no self-loops, no edges entering the root):
 
-\begin{table}[t]
-\centering
-\setlength{\tabcolsep}{6pt}
-\renewcommand{\arraystretch}{1.1}
-\begin{tabular}{c|cccccccccc}
-\hline
- & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 \\
-\hline
-1  & $\infty$ & 52 & 88 & 7  & 2  & 9  & 9  & 29 & 69 & 79 \\
-2  & $\infty$ & $\infty$ & 2  & 13 & 1  & 9  & 9  & 64 & 31 & 93 \\
-3  & $\infty$ & 82 & $\infty$ & 7  & 1  & 9  & 9  & 27 & 83 & 49 \\
-4  & $\infty$ & 3  & 59 & $\infty$ & 0  & 9  & 9  & 74 & 16 & 42 \\
-5  & $\infty$ & 55 & 96 & 32 & $\infty$ & 9  & 9  & 75 & 65 & 87 \\
-6  & $\infty$ & 89 & 96 & 30 & 67 & $\infty$ & 5  & 52 & 42 & 86 \\
-7  & $\infty$ & 47 & 64 & 72 & 56 & 8  & $\infty$ & 51 & 52 & 61 \\
-8  & $\infty$ & 30 & 33 & 43 & 95 & 28 & 25 & $\infty$ & 3  & 47 \\
-9  & $\infty$ & 55 & 64 & 43 & 69 & 42 & 81 & 6  & $\infty$ & 7  \\
-10 & $\infty$ & 61 & 97 & 63 & 25 & 26 & 71 & 72 & 43 & $\infty$ \\
-\hline
-\end{tabular}
-\caption{Cost matrix $C$ (rows: sources, columns: targets; node 1 is the root).}
-\end{table}
+$$C =
+\begin{array}{c|cccccccccc}
+   & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 \\ \hline
+1 & \infty & 52 & 88 & 7  & 2  & 9  & 9  & 29 & 69 & 79 \\
+2 & \infty & \infty & 2  & 13 & 1  & 9  & 9  & 64 & 31 & 93 \\
+3 & \infty & 82 & \infty & 7  & 1  & 9  & 9  & 27 & 83 & 49 \\
+4 & \infty & 3  & 59 & \infty & 0  & 9  & 9  & 74 & 16 & 42 \\
+5 & \infty & 55 & 96 & 32 & \infty & 9  & 9  & 75 & 65 & 87 \\
+6 & \infty & 89 & 96 & 30 & 67 & \infty & 5  & 52 & 42 & 86 \\
+7 & \infty & 47 & 64 & 72 & 56 & 8  & \infty & 51 & 52 & 61 \\
+8 & \infty & 30 & 33 & 43 & 95 & 28 & 25 & \infty & 3  & 47 \\
+9 & \infty & 55 & 64 & 43 & 69 & 42 & 81 & 6  & \infty & 7  \\
+10& \infty & 61 & 97 & 63 & 25 & 26 & 71 & 72 & 43 & \infty
+\end{array}$$
 
 
 #### Step 1: Initial starring
