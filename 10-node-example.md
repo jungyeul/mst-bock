@@ -36,39 +36,60 @@ For each non-root column, the cheapest incoming edge is starred:
 $(4,2), (2,3), (1,4), (4,5), (7,6), (6,7), (9,8), (8,9), (9,10)$
 
 The corresponding costs set the initial column duals:
+
 $U_1[2]=3, U_1[3]=2, U_1[4]=7, U_1[5]=0, U_1[6]=8, U_1[7]=5, U_1[8]=6, U_1[9]=3, U_1[10]=7$
 
-These stars induce two cycles: $6 \rightleftarrows 7,\qquad 8 \rightleftarrows 9$ 
+These stars induce two cycles: 
+
+$6 \rightleftarrows 7,\qquad 8 \rightleftarrows 9$ 
+
 At this point, Chu-Liu-Edmonds would contract these cycles, whereas Bock proceeds by dual adjustment.
 
 #### Step 2: First cycle and reduced costs
 
 Let the first cycle be $S=\{6,7\}$. Reduced costs are defined by
-$\hat c_{ij} = c_{ij} - U_1[j].$ For the complement row $i=1$ into
-cycle columns $j\in S$: $\hat c_{1,6} = 9 - 8 = 1,\qquad \hat c_{1,7} = 9 - 5 = 4.$ 
-The smallest reduced cost is
-$\mathrm{DU}=1$. Raise the duals of the cycle columns by this amount:
-$$U_1[6]\gets 9,\quad U_1[7]\gets 6.$$ Recompute reduced costs:
-$$\hat c_{1,6}=9-9=0,\qquad
-\hat c_{1,7}=9-6=3.$$ The first zero appears at $(1,6)$, which becomes
-the *barred* (tight) element.
+
+$\hat c_{ij} = c_{ij} - U_1[j].$ 
+
+For the complement row $i=1$ into cycle columns $j\in S$: 
+
+$\hat c_{1,6} = 9 - 8 = 1,\qquad \hat c_{1,7} = 9 - 5 = 4$ 
+
+The smallest reduced cost is $\mathrm{DU}=1$. Raise the duals of the cycle columns by this amount:
+
+$U_1[6]\gets 9,\quad U_1[7]\gets 6.$ 
+
+Recompute reduced costs:
+
+$\hat c_{1,6}=9-9=0,\qquad \hat c_{1,7}=9-6=3.$ 
+
+The first zero appears at $(1,6)$, which becomes the *barred* (tight) element.
 
 #### Step 3: Transfer path for cycle $\{6,7\}$
 
 Construct the alternating bar--star path:
-$$\overline{(1,6)} \;\to\; \star(7,6).$$ Swapping along this path
-replaces $\star(7,6)$ by $\star(1,6)$, breaking the cycle. Now
+
+$\overline{(1,6)} \;\to\; \star(7,6).$ 
+
+Swapping along this path replaces $\star(7,6)$ by $\star(1,6)$, breaking the cycle. Now
 $6 \leftarrow 1$ and $7 \leftarrow 6$.
 
 #### Step 4: Second cycle and reduced costs
 
 Next, consider the cycle $S=\{8,9\}$. Current duals: $U_1[8]=6$,
 $U_1[9]=3$. Reduced costs from row 1:
-$$\hat c_{1,8} = 29 - 6 = 23,\qquad
-\hat c_{1,9} = 69 - 3 = 66.$$ The minimum is $\mathrm{DU}=23$. Raise the
-duals: $$U_1[8]\gets 29,\quad U_1[9]\gets 26.$$ Recompute:
-$$\hat c_{1,8}=29-29=0,\qquad
-\hat c_{1,9}=69-26=43.$$ The zero at $(1,8)$ becomes the barred element.
+
+$\hat c_{1,8} = 29 - 6 = 23,\qquad \hat c_{1,9} = 69 - 3 = 66.$ 
+
+The minimum is $\mathrm{DU}=23$. Raise the duals: 
+
+$U_1[8]\gets 29,\quad U_1[9]\gets 26.$ 
+
+Recompute:
+
+$\hat c_{1,8}=29-29=0,\qquad \hat c_{1,9}=69-26=43.$ 
+
+The zero at $(1,8)$ becomes the barred element.
 
 #### Step 5: Transfer path for cycle $\{8,9\}$
 
