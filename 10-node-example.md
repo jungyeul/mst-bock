@@ -69,7 +69,7 @@ The first zero appears at $(1,6)$, which becomes the *barred* (tight) element.
 
 Construct the alternating bar--star path:
 
-$\overline{(1,6)} \;\to\; \star(7,6).$ 
+$\overline{(1,6)} \to \star(7,6).$ 
 
 Swapping along this path replaces $\star(7,6)$ by $\star(1,6)$, breaking the cycle. Now
 $6 \leftarrow 1$ and $7 \leftarrow 6$.
@@ -94,26 +94,28 @@ The zero at $(1,8)$ becomes the barred element.
 #### Step 5: Transfer path for cycle $\{8,9\}$
 
 Form the alternating bar--star path:
-$$\overline{(1,8)} \;\to\; \star(9,8).$$ Swap to obtain $\star(1,8)$,
-replacing $\star(9,8)$, and thus breaking the cycle. Now
+
+$\overline{(1,8)} \;\to\; \star(9,8).$ 
+
+Swap to obtain $\star(1,8)$, replacing $\star(9,8)$, and thus breaking the cycle. Now
 $8 \leftarrow 1$ and $9 \leftarrow 8$.
 
 #### Step 6: Final arborescence
 
 After the two swaps, each non-root column has exactly one starred edge:
-$$\begin{aligned}
-&(4,2),\ (2,3),\ (1,4),\ (4,5),\\
-&(1,6),\ (6,7),\ (1,8),\ (8,9),\ (9,10).
-\end{aligned}$$ The structure is now acyclic. Expressed as parent
-relations: $$1\to4,\quad 4\to2,\quad 2\to3,\quad 4\to5,\quad
-1\to6,\quad 6\to7,\quad 1\to8,\quad 8\to9,\quad 9\to10.$$
+
+$(4,2), (2,3), (1,4), (4,5), (1,6), (6,7), (1,8), (8,9), (9,10)$ 
+
+The structure is now acyclic. Expressed as parent
+relations: 
+
+$1\to4,\quad 4\to2,\quad 2\to3,\quad 4\to5,\quad 1\to6,\quad 6\to7,\quad 1\to8,\quad 8\to9,\quad 9\to10.$
 
 #### Step 7: Total cost
 
-The total cost of the final arborescence is: $$\begin{aligned}
-& C[4,2]+C[2,3]+C[1,4]+C[4,5]+C[1,6]+C[6,7]+C[1,8]+C[8,9]+C[9,10] \\
-&= 3+2+7+0+9+5+29+3+7 = 65.
-\end{aligned}$$
+The total cost of the final arborescence is: 
+
+$C[4,2]+C[2,3]+C[1,4]+C[4,5]+C[1,6]+C[6,7]+C[1,8]+C[8,9]+C[9,10] = 3+2+7+0+9+5+29+3+7 = 65.$
 
 #### Summary
 
@@ -137,29 +139,14 @@ optimization, while Chu-Liu remains a greedy graph-theoretic algorithm.
 Although both begin by selecting the minimum incoming edge for each
 non-root node, the mechanism of cycle resolution differs:
 
-$$\footnotesize{
-\begin{array}{p{0.44\linewidth} p{0.44\linewidth}} \toprule
-\textbf{Bock} & \textbf{Chu-Liu-Edmonds} \\ \midrule
+| **Bock** | **Chu–Liu–Edmonds** |
+|-----------|---------------------|
+| Form the *critical submatrix* of cycle nodes. | *Contract* the cycle into a supernode. |
+| Increase the dual variables of the cycle columns until an outside edge becomes *tight* (reduced cost zero). | Recompute the edges entering the supernode, adjust their costs, and recurse on the contracted graph. |
+| Insert the tight edge as a barred element and resolve the cycle by a *transfer path* (alternating starred and barred edges). | Expand the supernode, redistributing the incoming edges to the original nodes. |
+| Cycle resolution is achieved through primal–dual updates and local basis swaps. | Cycle resolution is achieved through recursive contraction and expansion of supernodes. |
 
-Form the \emph{critical submatrix} of cycle nodes. 
-& 
-\emph{Contract} the cycle into a supernode. \\
 
-Increase the dual variables of the cycle columns until an outside edge becomes 
-\emph{tight} (reduced cost zero). 
-& 
-Recompute the edges entering the supernode, adjust their costs, 
-and recurse on the contracted graph. \\
-
-Insert the tight edge as a barred element and resolve the cycle by a 
-\emph{transfer path} (alternating starred and barred edges). 
-& 
-Expand the supernode, redistributing the incoming edges to the original nodes. \\
-
-Cycle resolution is achieved through primal-dual updates and local basis swaps. 
-& 
-Cycle resolution is achieved through recursive contraction and expansion of supernodes. \\  \bottomrule
-\end{array}
-}$$ In summary, Chu-Liu-Edmonds resolves cycles by greedy contraction
+In summary, Chu-Liu-Edmonds resolves cycles by greedy contraction
 and recursion, whereas Bock resolves them through primal-dual
 adjustments and transfer paths.
