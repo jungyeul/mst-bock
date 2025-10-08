@@ -32,17 +32,14 @@ $C =$
 #### Step 1: Initial starring
 
 For each non-root column, the cheapest incoming edge is starred:
-$$\begin{aligned}
-&(4,2),\ (2,3),\ (1,4),\ (4,5),\\
-&(7,6),\ (6,7),\ (9,8),\ (8,9),\ (9,10).
-\end{aligned}$$ The corresponding costs set the initial column duals:
-$$\begin{aligned}
-& U_1[2]=3,\ U_1[3]=2,\ U_1[4]=7,\ U_1[5]=0,\ U_1[6]=8,\  \\
-& U_1[7]=5,\ U_1[8]=6,\ U_1[9]=3,\ U_1[10]=7.    
-\end{aligned}$$ These stars induce two cycles:
-$$6 \rightleftarrows 7,\qquad 8 \rightleftarrows 9.$$ At this point,
-Chu-Liu-Edmonds would contract these cycles, whereas Bock proceeds by
-dual adjustment.
+
+$ (4,2),\ (2,3),\ (1,4),\ (4,5), (7,6),\ (6,7),\ (9,8),\ (8,9),\ (9,10)$
+
+The corresponding costs set the initial column duals:
+$ U_1[2]=3,\ U_1[3]=2,\ U_1[4]=7,\ U_1[5]=0,\ U_1[6]=8,\ U_1[7]=5,\ U_1[8]=6,\ U_1[9]=3,\ U_1[10]=7$
+
+These stars induce two cycles: $6 \rightleftarrows 7,\qquad 8 \rightleftarrows 9.$ 
+At this point, Chu-Liu-Edmonds would contract these cycles, whereas Bock proceeds by dual adjustment.
 
 #### Step 2: First cycle and reduced costs
 
