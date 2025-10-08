@@ -27,6 +27,6 @@ Overall, the results indicate that on this hardware configuration both algorithm
 
 
 
-See the original example in {bock-1971-an-algorithm}, which illustrates a 10-node graph containing two independent 2-cycles, for a clearer understanding of Bock’s algorithm  [Example](10-).
+See the original example in {bock-1971-an-algorithm}, which illustrates a 10-node graph containing two independent 2-cycles, for a clearer understanding of Bock’s algorithm  [Example](10-node-example.md).
 
 
