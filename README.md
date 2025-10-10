@@ -1,6 +1,6 @@
 # MST by Bock's algorithm
 
-Yuxi Wang, Jungyeul Park* (September 2025). Revisiting MST-Based Dependency Parsing through Bock's Algorithm. Submitted to *Computational Linguistics -- MIT Press* as Squibs and Discussions. *Corresponding author.
+Yuxi Wang, Jungyeul Park* (October 2025). Revisiting MST-Based Dependency Parsing through Bock's Algorithm. Submitted to *Computational Linguistics -- MIT Press* as Squibs and Discussions. *Corresponding author.
 
 In `stanza/stanza/models/depparse/trainer.py`:
 ```
