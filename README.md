@@ -1,7 +1,7 @@
 # MST by Bock's algorithm
 
 Yuxi Wang, Jungyeul Park* (November 2025). 
-Revisiting MST-Based Dependency Parsing through Bock's Primal-Dual Algorithm.
+**Revisiting MST-Based Dependency Parsing through Bock's Primal-Dual Algorithm**.
 Submitted to *Computational Linguistics -- MIT Press* as Squibs and Discussions. *Corresponding author.
 
 In `stanza/stanza/models/depparse/trainer.py`:
