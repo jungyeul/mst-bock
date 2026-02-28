@@ -26,9 +26,3 @@ For Bock’s algorithm, five independent runs yielded durations between 2463 and
 For Chu–Liu/Edmonds, the corresponding five runs ranged from 2426 to 2440 seconds (≈40.5 minutes each). The five-run average was 2434 seconds, with a standard deviation of 5.89 seconds, again demonstrating consistent performance with only minimal variability.
 
 Overall, the results indicate that on this hardware configuration both algorithms achieve nearly identical training efficiency. Chu–Liu/Edmonds shows a modest average advantage of roughly 33 seconds per run (≈1.3%), whereas Bock’s algorithm displays slightly lower variance across runs.
-
-
-## example
-See the original example in [{bock-1971-an-algorithm}](https://drive.google.com/file/d/1W72sXq2xKzBZ_MDLECj_OMInLrxjtVe-/view?usp=share_link), which illustrates a 10-node graph containing two independent 2-cycles, for a clearer understanding of Bock’s algorithm  [[Example](10-node-example.md)].
-
-
