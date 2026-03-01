@@ -383,8 +383,136 @@ def bock_algorithm(cost_matrix, root):
     I_star[root] = root  # parent of root
     return Z, I_star
 
+
+def bock_algorithm_readable(cost_matrix, root, verbose=False):
+    """
+    Implements Bock's matrix-based algorithm to find a minimum-cost directed spanning tree.
+    Arguments:
+        cost_matrix : np.ndarray : a square matrix of shape (n, n)
+        root        : int        : index of the root node
+    Returns:
+        total_cost  : float      : the cost of the minimum spanning arborescence
+        parents     : list[int]  : list of parent indices forming the tree
+
+    Changes from original algorithm:
+        M removed   : simply use np.inf
+        I_star      : renamed to parents for clarity
+        bars        : renamed to candidate_edges for clarity
+        bars_k      : renamed to active_candidates for clarity
+        Z           : renamed to total_cost for clarity
+
+        cycle_possible: introduced to control the cycle detection loop, improving readability and correctness
+        from_L8     : removed as it's no longer needed with the new structure of the algorithm
+
+        span        : renamed to component for consistency with graph theory terminology
+        SS removed  : not needed with the new component tracking approach
+        cycle_trace : introduced to avoid negating component values, improving readability and correctness
+
+        outside_component: precomputed boolean array to identify nodes outside the current component, improving efficiency
+        finite_edges: precomputed boolean matrix to avoid repeated checks for infinite costs, improving efficiency
+    """
+    n = cost_matrix.shape[0]
+
+    # L2: Initialization
+    U1 = np.zeros(n)
+    parents = np.full(n, -1)
+    candidate_edges = np.full((n, 2), -1, dtype=int)
+    components = np.arange(n) + 1
+    finite_edges = cost_matrix < np.inf
+
+    # iterate through each node
+    for k in range(n):
+        if verbose:
+            print(f"\n====== K: {k+1} ======")
+        if k == root:
+            continue
+
+        # L4
+        cycle_possible = True
+        while cycle_possible:
+            if verbose:
+                print("--U1: ", U1)
+                print("Ista: ", parents + 1)
+                print("Ibar: ", candidate_edges[:, 0] + 1)
+                print("Jbar: ", candidate_edges[:, 1] + 1)
+                print("Component: ", components)
+            
+            dU = np.inf
+            curr_component = components[k]
+            outside_component = components != curr_component
+            for J in range(k+1):
+                if components[J] == curr_component:
+                    valid_indices = np.where(outside_component & (finite_edges[:, J]))[0]
+                    diffs = cost_matrix[valid_indices, J] - U1[J]
+                    if diffs.size > 0:
+                        min_index = np.argmin(diffs)
+                        if diffs[min_index] < dU:
+                            dU = diffs[min_index]
+                            I1, J1 = valid_indices[min_index], J
+
+            if verbose:
+                print("I1, J1: ", I1+1, J1+1)
+            if dU == np.inf:
+                return np.inf, None
+
+            # L5
+            mask = components == curr_component
+            mask[k+1:] = False  # ensure we only update up to k
+            U1[mask] += dU
+
+            # L6 - L8: cycle detection and component merging
+            J = I1
+            cycle_trace = np.full(k+1, False, dtype=bool)
+            while parents[J] >= 0 and components[J] != curr_component:
+                if components[J] > 0:
+                    cycle_trace[components[:k+1] == components[J]] = True
+
+                if candidate_edges[J][0] == -1:
+                    candidate_edges[J] = (I1, J1)
+
+                J = parents[J]
+
+            if components[J] == curr_component:
+                components[:k+1][cycle_trace] = curr_component
+            else:
+                cycle_possible = False
+                break
+
+        if verbose:
+            print('before L9')
+            print("Ibar: ", candidate_edges[:, 0] + 1)
+            print("Jbar: ", candidate_edges[:, 1] + 1)
+
+        # L9: obselete
+        # span[:K+1] = np.abs(span[:K+1])
+
+        I2 = J2 = -1
+        entering = True
+        
+        # L10, 11
+        while I2 != -1 or entering:
+            entering = False
+            
+            active_candidates = candidate_edges[:k+1]
+            mask = np.all(active_candidates == (I1, J1), axis=1)
+            active_candidates[mask] = (I2, J2)
+
+            I, J = candidate_edges[J1]
+            candidate_edges[J1] = (I2, J2)
+            I2, J2 = parents[J1], J1
+            parents[J1] = I1
+            I1, J1 = I, J
+
+    # L99
+    total_cost = 0
+    for J in range(n):
+        if J != root:
+            total_cost += cost_matrix[parents[J], J]
+
+    return total_cost, np.array(parents)
+
 #===============================================================
-def bock_one_root(cost_matrix, root):
+def bock_one_root(cost_matrix, root, bock_algorithm_choice=bock_algorithm_readable):
     """
     - Runs bock_algorithm(cost_matrix, root) once.
     - Finds nodes whose parent is the root in that solution.
@@ -415,7 +543,7 @@ def bock_one_root(cost_matrix, root):
     assert C0.shape == (n, n)
 
     # First pass: get an initial arborescence
-    Z0, par0 = bock_algorithm(C0, root)
+    Z0, par0 = bock_algorithm_choice(C0, root)
     if Z0 is None or par0 is None:
         return None, None
 
@@ -438,7 +566,7 @@ def bock_one_root(cost_matrix, root):
         # forbid all root->k except j_keep
         C[root, mask] = np.inf
 
-        Z, par = bock_algorithm(C, root)
+        Z, par = bock_algorithm_choice(C, root)
         if Z is not None and (best_Z is None or Z < best_Z):
             best_Z, best_par = Z, par
 
