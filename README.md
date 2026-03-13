@@ -5,10 +5,6 @@
 Submitted to *Computational Linguistics -- MIT Press* as Squibs and Discussions. 
 
 - Yuxi Wang, Jungyeul Park* (March 2026). 
-**A structured reformulation of Bock’s algorithm for minimum directed spanning trees**. 
-Submitted to *Information Processing Letters - Elsevier*. 
-
-- Yuxi Wang, Jungyeul Park* (March 2026). 
 **A gentle tutorial on Bock’s algorithm for minimum directed spanning trees**. 
 Submitted to *arXiv*. 
 *Corresponding author.
