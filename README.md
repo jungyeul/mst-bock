@@ -5,8 +5,7 @@
 Submitted to *Computational Linguistics -- MIT Press* as Squibs and Discussions. 
 
 - Yuxi Wang, Jungyeul Park* (March 2026). 
-**A gentle tutorial on Bock’s algorithm for minimum directed spanning trees**. 
-Submitted to *arXiv*. 
+**A gentle tutorial on Bock’s algorithm for minimum directed spanning trees** (https://arxiv.org/abs/2603.27530).
 *Corresponding author.
 
 In `stanza/stanza/models/depparse/trainer.py`:
