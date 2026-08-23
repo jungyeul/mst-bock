@@ -5,7 +5,7 @@
 Submitted to *Computational Linguistics -- MIT Press* as Squibs and Discussions. 
 
 - Yuxi Wang, Jungyeul Park* (August 2026, v2). 
-**A gentle tutorial on Bock's algorithm for minimum directed spanning trees with a structured reformulation**(https://arxiv.org/abs/2603.27530). *Corresponding author.
+**A gentle tutorial on Bock's algorithm for minimum directed spanning trees with a structured reformulation* (https://arxiv.org/abs/2603.27530). *Corresponding author.
 
 - Frederick C. Bock.
 **An algorithm to construct a minimum directed spanning tree in a directed network**.
