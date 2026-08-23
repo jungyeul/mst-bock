@@ -24,8 +24,7 @@ In `stanza/stanza/models/depparse/trainer.py`:
 >         head_seqs = [bock_one_root(-adj[:l, :l].T, 0)[1][1:] for adj, l in zip(preds[0], sentlens)]
 ```
 
-We also provide an updated `stanza/stanza/models/common/chuliu_edmonds.py` that defines both `bock_one_root()` and the core `bock_algorithm()` functions.
-
+We also provide an updated `stanza/stanza/models/common/chuliu_edmonds.py` containing the Algol-faithful `bock_algorithm()`, the structured reformulation `bock_algorithm_readable()`, and the one-root decoding wrapper `bock_one_root()`.
 
 To assess the practical runtime differences between the two minimum spanning tree decoding strategies, we measured wall-clock training times for Bock’s primal–dual algorithm and the Chu-Liu/Edmonds algorithm. All experiments were performed under identical hardware and software conditions: PyTorch 2.7.0 with Python 3.12 on Ubuntu 22.04, compiled against CUDA 12.8. The system was equipped with a single NVIDIA RTX 5090 GPU (32GB memory), 25 vCPUs on an Intel(R) Xeon(R) Platinum 8470Q processor, and 120GB of RAM.
 
