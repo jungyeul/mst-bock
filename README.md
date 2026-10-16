@@ -1,9 +1,5 @@
 # MST by Bock's algorithm
 
-- Yuxi Wang, Jungyeul Park* (November 2025, under review). 
-**Revisiting MST-Based Dependency Parsing through Bock's Primal-Dual Algorithm**.
-Submitted to *Computational Linguistics -- MIT Press* as Squibs and Discussions. 
-
 - Yuxi Wang, Jungyeul Park* (August 2026, v2). 
 **A gentle tutorial on Bock's algorithm for minimum directed spanning trees with a structured reformulation** (https://arxiv.org/abs/2603.27530). 
 
