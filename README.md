@@ -3,8 +3,8 @@
 - Yuxi Wang, Jungyeul Park* (August 2026, v2). 
 **A gentle tutorial on Bock's algorithm for minimum directed spanning trees with a structured reformulation** (https://arxiv.org/abs/2603.27530). 
 
-- Yuxi Wang, Jungyeul Park* (October 2026). 
-**A primal–dual equivalence between Bock’s and Chu-Liu/Edmonds' algorithms for optimum arborescences**. *Corresponding author.
+- Yuxi Wang, Jungyeul Park* (November 2026). 
+**Reformulation and Equivalence of Bock's Algorithm for Exact Dependency Parsing**. *Corresponding author.
   
 - Frederick C. Bock.
 **An algorithm to construct a minimum directed spanning tree in a directed network**.
