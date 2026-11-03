@@ -4,7 +4,7 @@
 **A gentle tutorial on Bock's algorithm for minimum directed spanning trees with a structured reformulation** (https://arxiv.org/abs/2603.27530). 
 
 - Yuxi Wang, Jungyeul Park* (November 2026). 
-**Reformulation and Equivalence of Bock's Algorithm for Exact Dependency Parsing**. *Corresponding author.
+**Reformulation and Equivalence of Bock's Algorithm for Exact Dependency Parsing**. (https://arxiv.org/abs/2611.00939).
   
 - Frederick C. Bock.
 **An algorithm to construct a minimum directed spanning tree in a directed network**.
