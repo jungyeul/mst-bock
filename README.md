@@ -9,9 +9,9 @@
 - Yuxi Wang, Jungyeul Park* (November 2026). 
 **Efficient Implementation and K-Best Enumeration with Bock’s Arborescence Algorithm**
 
-- Frederick C. Bock.
+- Frederick C. Bock (1971).
 **An algorithm to construct a minimum directed spanning tree in a directed network**.
-*Developments in Operations Research; Proceedings of the Third Annual Israel Conference on Operations Research*, pages 29--44. Gordon and Breach, New York, 1971. (A scanned copy: https://tinyurl.com/594b96ca).
+*Developments in Operations Research; Proceedings of the Third Annual Israel Conference on Operations Research*, pages 29--44. Gordon and Breach, New York. (A scanned copy: https://tinyurl.com/594b96ca).
 
 
 In `stanza/stanza/models/depparse/trainer.py`:
