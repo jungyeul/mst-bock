@@ -3,7 +3,7 @@
 - Yuxi Wang, Jungyeul Park* (August 2026, v2). 
 **A gentle tutorial on Bock's algorithm for minimum directed spanning trees with a structured reformulation** (https://arxiv.org/abs/2603.27530). 
 
-- Yuxi Wang, Jungyeul Park* (October 2026). 
+- Yuxi Wang, Jungyeul Park* (November 2026). 
 **Reformulation and Equivalence of Bock's Algorithm for Exact Dependency Parsing**. (https://arxiv.org/abs/2611.00939).
 
 - Yuxi Wang, Jungyeul Park* (November 2026). 
