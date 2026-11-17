@@ -9,6 +9,10 @@
 - Yuxi Wang, Jungyeul Park* (November 2026). 
 **Efficient Implementation and K-Best Enumeration with Bock’s Arborescence Algorithm**
 
+- Jungyeul Park*, Yuxi Wang (November 2026). 
+**Efficient Spanning Arborescence Decoding for Dependency Parsing**  
+
+
 - Frederick C. Bock (1971).
 **An algorithm to construct a minimum directed spanning tree in a directed network**.
 *Developments in Operations Research; Proceedings of the Third Annual Israel Conference on Operations Research*, pages 29--44. Gordon and Breach, New York. (A scanned copy: https://tinyurl.com/594b96ca).
