@@ -4,7 +4,7 @@
 **A gentle tutorial on Bock's algorithm for minimum directed spanning trees with a structured reformulation** (https://arxiv.org/abs/2603.27530). 
 
 - Yuxi Wang, Jungyeul Park\* (November 2026).
-**[Reformulation and Equivalence of Bock's Algorithm for Exact Dependency Parsing](https://arxiv.org/abs/2611.00939)** (under review).
+**Reformulation and Equivalence of Bock's Algorithm for Exact Dependency Parsing** (https://arxiv.org/abs/2611.00939), (under review).
 
 - Yuxi Wang, Jungyeul Park\* (November 2026).
 **Efficient Implementation and K-Best Enumeration with Bock’s Arborescence Algorithm** (final checks before submission).
