@@ -3,14 +3,14 @@
 - Yuxi Wang, Jungyeul Park* (August 2026, v2). 
 **A gentle tutorial on Bock's algorithm for minimum directed spanning trees with a structured reformulation** (https://arxiv.org/abs/2603.27530). 
 
-- Yuxi Wang, Jungyeul Park* (November 2026). 
-**Reformulation and Equivalence of Bock's Algorithm for Exact Dependency Parsing**. (https://arxiv.org/abs/2611.00939).
+- Yuxi Wang, Jungyeul Park\* (November 2026).
+**[Reformulation and Equivalence of Bock's Algorithm for Exact Dependency Parsing](https://arxiv.org/abs/2611.00939)** (under review).
 
-- Yuxi Wang, Jungyeul Park* (November 2026). 
-**Efficient Implementation and K-Best Enumeration with Bock’s Arborescence Algorithm**
+- Yuxi Wang, Jungyeul Park\* (November 2026).
+**Efficient Implementation and K-Best Enumeration with Bock’s Arborescence Algorithm** (final checks before submission).
 
-- Jungyeul Park*, Yuxi Wang (November 2026). 
-**Efficient Spanning Arborescence Decoding for Dependency Parsing**  
+- Jungyeul Park\*, Yuxi Wang (November 2026).
+**Efficient Spanning Arborescence Decoding for Dependency Parsing** (final checks before submission).
 
 
 - Frederick C. Bock (1971).
